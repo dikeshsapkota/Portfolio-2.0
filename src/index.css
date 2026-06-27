@@ -20,6 +20,7 @@ html {
   --accent: #4b18b9;
   --accent-2: #00bcd4;
   --dark: #0b0d12;
+  --accent-3:2871e3;
 }
 
 body.light-theme {
@@ -214,9 +215,12 @@ body.light-theme .slider {
 ========================================= */
 .hero {
   min-height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
   color: white;
+  padding: 0 8%;
+  overflow: hidden;
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
     url("./assets/images/hero-bg.png");
@@ -225,30 +229,56 @@ body.light-theme .slider {
   background-repeat: no-repeat;
 }
 
-.hero-content {
-  max-width: 700px;
+.hero > div {
+  max-width: 850px;
+  z-index: 2;
 }
 
-.hero h1 {
-  font-size: 72px;
-  font-weight: 800;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+.tilt-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+  font-size: clamp(60px, 9vw, 140px);
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease, text-shadow 0.3s ease;
+  width: fit-content;
 }
 
+.first-name,
+.last-name {
+  display: block;
+}
+
+.first-name {
+  color: white;
+}
+
+.last-name {
+  color: var(--accent);
+}
+
+.tilt-name:hover {
+  text-shadow:
+    0 0 20px rgba(40, 81, 227, 0.7),
+    0 0 45px rgba(40, 81, 227, 0.35);
+}
 .hero h3 {
   font-size: 28px;
-  margin: 15px 0;
+  margin: 20px 0 10px;
   color: var(--accent);
 }
 
 .hero p {
-  max-width: 600px;
+  max-width: 620px;
   font-size: 18px;
   line-height: 1.7;
+  color: #cfd6e8;
 }
-
 #typing-text {
-  color: var(--accent);
+  color: var(--accent-3);
 }
 
 #typing-text::after {
@@ -341,15 +371,33 @@ body.light-theme .slider {
   transform: translateY(-3px);
   background: var(--accent);
 }
-
 .cv-btn {
+  position: relative;
+  overflow: hidden;
   background: transparent;
   border: 2px solid var(--accent);
   color: var(--accent);
+  transition: color 1s ease;
+  z-index: 1;
+}
+
+.cv-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transition: left 1s ease;
+  z-index: -1;
+}
+
+.cv-btn:hover::before {
+  left: 0;
 }
 
 .cv-btn:hover {
-  background: var(--accent);
   color: white;
 }
 .scroll-down {
@@ -875,4 +923,11 @@ footer,
   .project-image {
     height: 180px;
   }
+}
+body.light-theme .scroll-down {
+  color: white;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 10px 16px;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
 }

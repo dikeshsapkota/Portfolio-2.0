@@ -16,7 +16,7 @@ function Hero() {
   const [dragStyle, setDragStyle] = useState({});
   const dragging = useRef(false);
   const start = useRef({ x: 0, y: 0 });
-
+const nameRef = useRef(null);
   useEffect(() => {
     let roleIndex = 0;
     let charIndex = 0;
@@ -85,11 +85,47 @@ function Hero() {
     dragging.current = true;
     start.current = { x: e.clientX, y: e.clientY };
   }
+function handleMouseDown(e) {
+  dragging.current = true;
+  start.current = { x: e.clientX, y: e.clientY };
+}
 
+// ADD HERE ↓↓↓
+
+function handleNameMove(e) {
+  const name = nameRef.current;
+  const rect = name.getBoundingClientRect();
+
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const rotateX = ((y / rect.height) - 0.5) * -12;
+  const rotateY = ((x / rect.width) - 0.5) * 12;
+
+  name.style.transform = `
+    perspective(900px)
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    scale(1.02)
+  `;
+}
+
+function resetName() {
+  nameRef.current.style.transform =
+    "perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)";
+}
   return (
     <section id="home" className="hero">
       <div>
-        <h1>Dikesh Sapkota</h1>
+<h1
+  className="tilt-name"
+  ref={nameRef}
+  onMouseMove={handleNameMove}
+  onMouseLeave={resetName}
+>
+  <span className="first-name">DIKESH</span>
+  <span className="last-name">SAPKOTA</span>
+</h1>
 
         <h3
           id="draggableText"
