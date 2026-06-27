@@ -1,65 +1,49 @@
-import { useState } from "react";
-
 function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  function handleChange(e) {
-    const { id, value } = e.target;
-    setForm((prev) => ({ ...prev, [id]: value }));
-  }
-
-  function sendMessage(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    if (!form.name.trim()) {
-      alert("Please enter your name");
-      return;
-    }
+    const formData = new FormData(e.target);
 
-    if (!form.email.trim()) {
-      alert("Please enter your email");
-      return;
-    }
+    formData.append("access_key", "2bab0dd4-0a38-47c0-9095-2ebc32fc2a48");
 
-    if (!form.message.trim()) {
-      alert("Please enter your message");
-      return;
-    }
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
 
-    alert(`Thank you, ${form.name}! Your message has been received.`);
-    setForm({ name: "", email: "", message: "" });
+    const result = await response.json();
+
+    if (result.success) {
+      alert("Message sent successfully!");
+      e.target.reset();
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
   }
 
   return (
     <section id="contact">
       <h2>Contact Me</h2>
 
-      <form onSubmit={sendMessage}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
-          id="name"
+          name="name"
           placeholder="Your Name"
-          value={form.name}
-          onChange={handleChange}
+          required
         />
 
         <input
           type="email"
-          id="email"
+          name="email"
           placeholder="Your Email"
-          value={form.email}
-          onChange={handleChange}
+          required
         />
 
         <textarea
-          id="message"
+          name="message"
           placeholder="Your Message"
-          value={form.message}
-          onChange={handleChange}
+          required
         ></textarea>
 
         <button type="submit">Send Message</button>
