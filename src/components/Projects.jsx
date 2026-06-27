@@ -8,7 +8,7 @@ function Projects() {
       image: travelImg,
       description:
         "A React travel journal with reusable components, data-driven rendering, image upload, and add destination feature.",
-      live: "#",
+      live: "https://dikeshsapkota.github.io/MyTravelJournal/",
       github: "https://github.com/dikeshsapkota/MyTravelJournal",
     },
     {
@@ -17,7 +17,7 @@ function Projects() {
       description:
         "A JavaScript quiz app using API, timer, score system, categories, and dynamic questions.",
       live: "https://dikeshsapkota.github.io/Quiz-app/",
-      github: "#",
+      github: "https://github.com/dikeshsapkota/Quiz-app",
     },
     
   ];
