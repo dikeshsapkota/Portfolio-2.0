@@ -856,15 +856,16 @@ transform:translateY(-12px);
   font-size: 13px;
 }
 
-.education-steps button.active,
-.education-steps button:hover {
+.education-steps button:hover,
+.education-steps button.active {
   background: var(--accent);
-  color: white;
+  color: #fff;
+  border-color: var(--accent);
 }
-
 body.light-theme .education-display,
 body.light-theme .education-steps button {
   background: rgba(255,255,255,0.8);
+  color: var(--text);
 }
 .about-card-header {
   display: flex;
@@ -899,17 +900,61 @@ body.light-theme .education-steps button {
 }
 
 .hobby-list {
-  display: grid;
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
 }
 
-.hobby-list div {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid var(--border);
-  padding: 16px;
-  border-radius: 12px;
+.hobby-row {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 15px;
+  border-radius: 14px;
+  transition: .35s ease;
+  cursor: pointer;
 }
 
+.hobby-row:hover {
+  background: rgba(40,81,227,.08);
+  transform: translateX(10px);
+}
+
+body.light-theme .hobby-row:hover{
+  background:#eef3ff;
+}
+
+.hobby-row img {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  object-fit: cover;
+  transition:.35s;
+}
+
+.hobby-row:hover img{
+  transform:scale(1.08);
+}
+
+.hobby-content{
+  flex:1;
+}
+
+.hobby-content h4{
+  margin-bottom:6px;
+  color:var(--text);
+}
+
+.hobby-content p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.hobby-content a{
+  color:var(--accent);
+  text-decoration:none;
+}
 @media (max-width: 768px) {
   .about-bottom-grid {
     grid-template-columns: 1fr;

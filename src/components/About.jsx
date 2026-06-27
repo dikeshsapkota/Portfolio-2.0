@@ -1,5 +1,8 @@
 import { useState } from "react";
-
+import manwha from "../assets/images/manwha.jpeg";
+import dikesh from "../assets/images/dikesh.jpeg";
+import coding from "../assets/images/coding.webp";
+import messi from "../assets/images/messi.jpg";
 
 const educationTimeline = [
   {
@@ -99,20 +102,72 @@ const currentEducation = educationTimeline[educationIndex];
   </div>
 </div>
 
-          <div className="info-card">
-            <h3>Interests & Hobbies</h3>
+         
 
-            <div className="hobby-list">
-              <div>📚 Reading Comics & Manga</div>
-              <div>♟️ Chess</div>
-              <div>💻 Coding & Coffee</div>
-              <div>⚽ Football</div>
-            </div>
+            <div className="info-card hobby-card">
+  <h3>Interests & Hobbies</h3>
+
+  <div className="hobby-list">
+    <HobbyItem
+      image={manwha}
+      emoji="📚"
+      title="Reading Comics & Manga"
+      text="Exploring creative stories and visual storytelling."
+    />
+
+    <HobbyItem
+      image={dikesh}
+      emoji="♟️"
+      title="Chess"
+      text="Strategic thinking and problem solving."
+      link="https://www.chess.com/member/blunderkingdikesh"
+    />
+
+    <HobbyItem
+      image={coding}
+      emoji="💻"
+      title="Coding & Coffee"
+      text="Building projects while learning new technologies."
+    />
+
+    <HobbyItem
+      image={messi}
+      emoji="⚽"
+      title="Football"
+      text="Following major leagues and international tournaments."
+    />
+  </div>
+</div>
           </div>
         </div>
-      </div>
+      
     </section>
   );
 }
+function HobbyItem({ image, emoji, title, text, link }) {
+  return (
+    <div className="hobby-row">
+      <img src={image} alt={title} />
 
+      <div className="hobby-content">
+        <h4>
+          {emoji} {title}
+        </h4>
+
+        <p>
+          {text}
+
+          {link && (
+            <>
+              {" "}
+              <a href={link} target="_blank" rel="noreferrer">
+                Chess Profile →
+              </a>
+            </>
+          )}
+        </p>
+      </div>
+    </div>
+  );
+}
 export default About;
