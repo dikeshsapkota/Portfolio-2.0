@@ -21,6 +21,12 @@ html {
 --accent-2: #4F7CFF;
 --accent-3: #8FB4FF;
   --dark: #0b0d12;
+ 
+  --github-color: white;
+
+
+
+
 }
 
 body.light-theme {
@@ -30,6 +36,9 @@ body.light-theme {
   --card: rgba(255, 255, 255, 0.78);
   --border: rgba(17, 24, 39, 0.10);
   --dark: #ffffff;
+  
+  --github-color: #181717;
+
 }
 
 body {
@@ -81,8 +90,8 @@ footer {
 }
 
 .background-blobs span:nth-child(1) {
-  width: 520px;
-  height: 520px;
+  width: 650px;
+  height: 650px;
   top: -120px;
   left: -120px;
   background: rgba(40, 81, 227, 0.45);
@@ -116,19 +125,19 @@ background: rgba(0, 188, 212, 0.28);
 }
 
 body.light-theme .background-blobs span:nth-child(1) {
-  background: rgba(40, 81, 227, 0.09);
+  background: rgba(40, 81, 227, 0.18);
 }
 
 body.light-theme .background-blobs span:nth-child(2) {
-  background: rgba(79, 124, 255, 0.08);
+  background: rgba(79, 124, 255, 0.15);
 }
 
 body.light-theme .background-blobs span:nth-child(3) {
-  background: rgba(0, 188, 212, 0.06);
+  background: rgba(0, 188, 212, 0.13);
 }
 
 body.light-theme .background-blobs span:nth-child(4) {
-  background: rgba(40, 81, 227, 0.04);
+  background: rgba(140, 100, 255, 0.12);
 }
 @keyframes blobMove {
   0% {
@@ -762,162 +771,195 @@ transform:translateY(-12px);
 /* =========================================
    ABOUT COMPONENT
 ========================================= */
-.about-grid {
+.about-layout {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
   gap: 30px;
 }
 
-.about-description,
-.education-card,
-.about-grid > div:first-of-type,
-.hobbies-column,
-.card,
-.skill-card,
-.mini-hobby-card,
-.project-card,
-#contact form {
+.about-card,
+.info-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 30px;
+  backdrop-filter: blur(14px);
 }
-
-.about-description {
-  padding: 25px;
-  line-height: 1.9;
-  color: var(--muted);
-  text-align: justify;
-}
-
-.about-description strong {
-  color: var(--text);
-}
-
-.education-card,
-.about-grid > div:first-of-type {
-  padding: 25px;
-}
-
-.about-grid h3 {
-  margin-bottom: 20px;
-  color: var(--text);
-}
-
-.timeline-item {
-  border-left: 3px solid var(--accent);
-  padding-left: 18px;
-  margin-bottom: 25px;
-}
-
-.timeline-item h4 {
-  margin-bottom: 5px;
-  color: var(--text);
-}
-
-.timeline-item p {
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-
-.timeline-item span {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.hobbies-column {
-  grid-column: 1 / -1;
-  padding: 25px;
-}
-
-.hobbies-column h3 {
-  margin-bottom: 25px;
-}
-
-.hobbies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.mini-hobby-card {
-  display: block;
+.education-slider-card {
   overflow: hidden;
-  padding: 0;
-  transition: all 0.3s ease;
 }
 
-.mini-hobby-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(40,81,227,0.15);
+.education-display {
+  margin-top: 20px;
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  transition: 0.3s ease;
 }
 
-.mini-hobby-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.mini-hobby-card div {
-  padding: 18px;
-}
-
-.mini-hobby-card h4 {
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-.mini-hobby-card p {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.mini-hobby-card a {
-  color: var(--accent);
-  text-decoration: none;
+.edu-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
   font-weight: 600;
+
+  background: rgba(40,81,227,.15);
+  color: var(--accent);
+
+  border: 1px solid rgba(40,81,227,.3);
 }
 
+.education-display h4 {
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.education-display p {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.education-display span {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.education-display strong {
+  color: var(--accent-3);
+}
+
+.education-range {
+  width: 100%;
+  margin: 28px 0 15px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.education-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.education-steps button {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+.education-steps button.active,
+.education-steps button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+body.light-theme .education-display,
+body.light-theme .education-steps button {
+  background: rgba(255,255,255,0.8);
+}
+.about-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.about-card-header button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.about-card p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+.about-card strong {
+  color: var(--accent);
+}
+
+.about-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.hobby-list {
+  display: grid;
+  gap: 15px;
+}
+
+.hobby-list div {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .about-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* =========================================
    SKILLS COMPONENT
 ========================================= */
 .cards,
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 24px;
 }
 
 .card,
 .skill-card {
-  padding: 25px;
+  padding: 28px 22px;
   text-align: center;
-  transition: 0.3s;
+  transition: 0.35s ease;
 }
 
-.card i,
-.skill-card i {
-  font-size: 42px;
-  color: var(--accent);
-  margin-bottom: 15px;
+.skill-icon {
+  font-size: 64px;
+  margin-bottom: 18px;
+  transition: 0.35s ease;
 }
 
 .card h3,
 .skill-card h3 {
   font-size: 18px;
   color: var(--text);
+  margin-bottom: 8px;
 }
 
 .card p,
 .skill-card p {
   color: var(--muted);
+  font-size: 14px;
 }
 
 .card:hover,
 .skill-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(40,81,227,0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 14px 40px rgba(40, 81, 227, 0.22);
+}
+
+.card:hover .skill-icon,
+.skill-card:hover .skill-icon {
+  transform: scale(1.15) rotate(-8deg);
 }
 
 .skill-tabs {
