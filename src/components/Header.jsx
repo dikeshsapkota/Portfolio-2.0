@@ -18,7 +18,10 @@ function Header({ lightTheme, setLightTheme }) {
   return (
     <header className={scrolled ? "scrolled" : ""}>
       <nav>
-        <h2 className="logo">Dikesh</h2>
+        <a href="#home" className="logo">
+  <span className="logo-d">D</span>
+  <span className="logo-s">S</span>
+</a>
 
         <ul id="navLinks" className={menuOpen ? "active" : ""}>
           <li><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
