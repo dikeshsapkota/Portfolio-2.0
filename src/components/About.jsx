@@ -36,8 +36,8 @@ const educationTimeline = [
 ];
 function About() {
   const [showMore, setShowMore] = useState(false);
-const [educationIndex, setEducationIndex] = useState(0);
-const currentEducation = educationTimeline[educationIndex];
+  const [educationIndex, setEducationIndex] = useState(0);
+  const currentEducation = educationTimeline[educationIndex];
   return (
     <section id="about">
       <h2>About Me</h2>
@@ -55,92 +55,99 @@ const currentEducation = educationTimeline[educationIndex];
             I am <strong>Dikesh Sapkota</strong>, a CSIT student currently
             pursuing my Bachelor's degree at Vedas College, Jawlakhel. I am
             passionate about software development, web technologies, and creating
-            user-focused digital experiences.
+            user-focused digital experiences.I enjoy transforming ideas into responsive,
+             user-friendly web applications while constantly improving my technical skills.
+              My experience includes HTML, CSS, JavaScript, React, Git, GitHub, REST APIs, and MySQL,
+             and I'm currently expanding my knowledge of full-stack development.
           </p>
 
           {showMore && (
             <p>
-              I have hands-on experience with HTML, CSS, JavaScript, Git,
-              GitHub, REST APIs, and I am currently expanding my skills in
-              React, Node.js, Express.js, and database systems. Beyond coding, I
-              enjoy manga, chess, football, and building projects with coffee.
+              Beyond coding, I'm a curious and detail-oriented person who enjoys
+               learning by building real projects and refining them until they meet
+                a high standard. I believe in writing clean, maintainable code and 
+                approaching challenges with patience and persistence. Whether I'm 
+                exploring new technologies, solving programming problems, or collaborating
+                 with others, I value continuous growth, creativity, and professionalism.
+                  My goal is to become a skilled full-stack developer who builds meaningful 
+                  digital experiences and continues learning throughout my career.
             </p>
           )}
         </div>
 
         <div className="about-bottom-grid">
           <div className="info-card education-slider-card">
-  <h3>Education Timeline</h3>
+            <h3>Education Timeline</h3>
 
-  <div className="education-display">
-    <span className="edu-badge">{currentEducation.level}</span>
-    <h4>{currentEducation.school}</h4>
-    <p>{currentEducation.location}</p>
-    <span>{currentEducation.date}</span>
-    <strong>{currentEducation.result}</strong>
-  </div>
+            <div className="education-display">
+              <span className="edu-badge">{currentEducation.level}</span>
+              <h4>{currentEducation.school}</h4>
+              <p>{currentEducation.location}</p>
+              <span>{currentEducation.date}</span>
+              <strong>{currentEducation.result}</strong>
+            </div>
 
-  <input
-    type="range"
-    min="0"
-    max={educationTimeline.length - 1}
-    value={educationIndex}
-    onChange={(e) => setEducationIndex(Number(e.target.value))}
-    className="education-range"
-  />
+            <input
+              type="range"
+              min="0"
+              max={educationTimeline.length - 1}
+              value={educationIndex}
+              onChange={(e) => setEducationIndex(Number(e.target.value))}
+              className="education-range"
+            />
 
-  <div className="education-steps">
-    {educationTimeline.map((item, index) => (
-      <button
-        key={item.level}
-        className={educationIndex === index ? "active" : ""}
-        onClick={() => setEducationIndex(index)}
-      >
-        {item.level}
-      </button>
-    ))}
-  </div>
-</div>
+            <div className="education-steps">
+              {educationTimeline.map((item, index) => (
+                <button
+                  key={item.level}
+                  className={educationIndex === index ? "active" : ""}
+                  onClick={() => setEducationIndex(index)}
+                >
+                  {item.level}
+                </button>
+              ))}
+            </div>
+          </div>
 
-         
 
-            <div className="info-card hobby-card">
-  <h3>Interests & Hobbies</h3>
 
-  <div className="hobby-list">
-    <HobbyItem
-      image={manwha}
-      emoji="📚"
-      title="Reading Comics & Manga"
-      text="Exploring creative stories and visual storytelling."
-    />
+          <div className="info-card hobby-card">
+            <h3>Interests & Hobbies</h3>
 
-    <HobbyItem
-      image={dikesh}
-      emoji="♟️"
-      title="Chess"
-      text="Strategic thinking and problem solving."
-      link="https://www.chess.com/member/blunderkingdikesh"
-    />
+            <div className="hobby-list">
+              <HobbyItem
+                image={manwha}
+                emoji="📚"
+                title="Reading Comics & Manga"
+                text="Exploring creative stories and visual storytelling."
+              />
 
-    <HobbyItem
-      image={coding}
-      emoji="💻"
-      title="Coding & Coffee"
-      text="Building projects while learning new technologies."
-    />
+              <HobbyItem
+                image={dikesh}
+                emoji="♟️"
+                title="Chess"
+                text="Strategic thinking and problem solving."
+                link="https://www.chess.com/member/blunderkingdikesh"
+              />
 
-    <HobbyItem
-      image={messi}
-      emoji="⚽"
-      title="Football"
-      text="Following major leagues and international tournaments."
-    />
-  </div>
-</div>
+              <HobbyItem
+                image={coding}
+                emoji="💻"
+                title="Coding & Coffee"
+                text="Building projects while learning new technologies."
+              />
+
+              <HobbyItem
+                image={messi}
+                emoji="⚽"
+                title="Football"
+                text="Following major leagues and international tournaments."
+              />
+            </div>
           </div>
         </div>
-      
+      </div>
+
     </section>
   );
 }
