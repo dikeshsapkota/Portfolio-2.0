@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackgroundBlobs from "./components/BackgroundBlob";
+import BottomNav from "./components/BottomNav";
 function App() {
   const [lightTheme, setLightTheme] = useState(
     localStorage.getItem("theme") === "light"
@@ -21,12 +22,14 @@ function App() {
     <>
      <BackgroundBlobs />
       <Header lightTheme={lightTheme} setLightTheme={setLightTheme} />
+       <BottomNav />
       <Hero />
       <About />
       <Skills />
       <Projects />
       <Contact />
       <Footer />
+      
     </>
   );
 }
