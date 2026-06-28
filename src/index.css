@@ -1183,84 +1183,117 @@ body.light-theme .project-tags span {
 /* =========================================
    CONTACT COMPONENT
 ========================================= */
-#contact,
-.contact {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+/* ===== Contact Section ===== */
+
+#contact {
+  padding: 80px 20px;
 }
 
-#contact form,
-.contact form {
-  width: 100%;
-  max-width: 550px;
-  padding: 30px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input,
-textarea {
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: rgba(255,255,255,0.05);
+#contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
   color: var(--text);
 }
 
-
-body.light-theme .about-description,
-body.light-theme .education-card,
-body.light-theme .about-grid > div:first-of-type,
-body.light-theme .hobbies-column,
-body.light-theme .card,
-body.light-theme .skill-card,
-body.light-theme .mini-hobby-card,
-body.light-theme .project-card,
-body.light-theme #contact form {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(17, 24, 39, 0.10);
-  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.06);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+#contact p {
+  color: var(--text-secondary);
+  margin-bottom: 35px;
 }
 
-body.light-theme input,
-body.light-theme textarea {
-  background: #ffffff;
-  color: #15171c;
-  border: 1px solid #ccc;
+#contact form {
+  border-radius: 20px;
+  padding: 35px;
+  transition: 0.3s ease;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #9ca3af;
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
 }
 
-textarea {
-  height: 130px;
-  resize: vertical;
+#contact input:focus,
+#contact textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(40, 81, 227, 0.15);
 }
 
-form button {
-  padding: 14px;
-  background: #111;
-  color: white;
+#contact textarea {
+  min-height: 170px;
+}
+
+#contact button {
+  width: 100%;
+  padding: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-form button:hover {
-  background: var(--accent-2);
+#contact button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(40, 81, 227, 0.3);
+}
+
+#contact button:active {
+  transform: scale(0.98);
+}
+
+/* Dark Theme */
+
+body:not(.light-theme) #contact form {
+  background: rgba(26, 26, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+body:not(.light-theme) #contact input,
+body:not(.light-theme) #contact textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+body:not(.light-theme) #contact input::placeholder,
+body:not(.light-theme) #contact textarea::placeholder {
+  color: #8b949e;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  #contact {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  #contact form {
+    padding: 24px;
+  }
+
+  #contact input,
+  #contact textarea {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  #contact button {
+    padding: 14px;
+  }
 }
 
 /* =========================================
