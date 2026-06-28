@@ -8,6 +8,13 @@ function Projects() {
       image: travelImg,
       description:
         "A React travel journal with reusable components, data-driven rendering, image upload, and add destination feature.",
+      techStack: [
+        "React",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "GitHub Pages",
+      ],
       live: "https://dikeshsapkota.github.io/MyTravelJournal/",
       github: "https://github.com/dikeshsapkota/MyTravelJournal",
     },
@@ -16,10 +23,16 @@ function Projects() {
       image: quizImg,
       description:
         "A JavaScript quiz app using API, timer, score system, categories, and dynamic questions.",
+      techStack: [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "REST API",
+        "GitHub Pages",
+      ],
       live: "https://dikeshsapkota.github.io/Quiz-app/",
       github: "https://github.com/dikeshsapkota/Quiz-app",
     },
-    
   ];
 
   return (
@@ -33,11 +46,33 @@ function Projects() {
 
             <div className="project-content">
               <h3>{project.title}</h3>
+
               <p>{project.description}</p>
 
+              <div className="tech-stack">
+                {project.techStack.map((tech) => (
+                  <span className="tech-badge" key={tech}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
               <div className="project-links">
-                <a href={project.live} target="_blank">Live Demo</a>
-                <a href={project.github} target="_blank">GitHub</a>
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live Demo
+                </a>
+
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
               </div>
             </div>
           </div>

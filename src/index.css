@@ -1179,6 +1179,31 @@ body.light-theme .project-tags span {
   color: var(--accent-2);
   text-decoration: none;
 }
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.tech-badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(40, 81, 227, 0.12);
+  border: 1px solid rgba(40, 81, 227, 0.25);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+
+
+body.light-theme .tech-badge {
+  background: #eef4ff;
+  border-color: #c7d7ff;
+  color: #2851e3;
+}
 
 /* =========================================
    CONTACT COMPONENT
@@ -1187,12 +1212,19 @@ body.light-theme .project-tags span {
 
 #contact {
   padding: 80px 20px;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #contact h2 {
   font-size: 2.5rem;
-  margin-bottom: 12px;
+ 
   color: var(--text);
+   align-self: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 #contact p {
@@ -1201,19 +1233,23 @@ body.light-theme .project-tags span {
 }
 
 #contact form {
-  border-radius: 20px;
-  padding: 35px;
-  transition: 0.3s ease;
+  width: min(90%, 460px);
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-radius: 16px;
 }
 
 #contact input,
 #contact textarea {
   width: 100%;
-  padding: 16px 18px;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: all 0.3s ease;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 #contact input:focus,
@@ -1224,9 +1260,9 @@ body.light-theme .project-tags span {
 }
 
 #contact textarea {
-  min-height: 170px;
+  min-height: 110px;
+  resize: vertical;
 }
-
 #contact button {
   width: 100%;
   padding: 16px;
