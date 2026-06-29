@@ -1137,6 +1137,7 @@ body.light-theme .hobby-row:hover{
   overflow: hidden;
   padding: 0;
   transition: 0.3s ease;
+  height:auto;
 }
 
 .project-card:hover {
