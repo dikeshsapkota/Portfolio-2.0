@@ -1197,7 +1197,38 @@ body.light-theme .project-tags span {
   background: #eef2ff;
   color: var(--accent);
 }
+.project-features {
+  margin: 18px 0;
+}
 
+.project-features h4 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.project-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-features li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.project-features li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: bold;
+}
 .project-links {
   display: flex;
   gap: 12px;
@@ -1285,7 +1316,44 @@ body.light-theme .tech-badge {
   border-color: #c7d7ff;
   color: #2851e3;
 }
+.more-projects {
+  margin-top: 60px;
+  text-align: center;
+}
 
+.more-projects h3 {
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+
+.more-projects p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.github-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(40, 81, 227, 0.3);
+}
+
+body.light-theme .github-btn {
+  color: #fff;
+}
 /* =========================================
    CONTACT COMPONENT
 ========================================= */

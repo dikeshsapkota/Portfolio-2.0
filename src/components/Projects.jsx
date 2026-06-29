@@ -15,6 +15,13 @@ function Projects() {
         "CSS3",
         "GitHub Pages",
       ],
+      features: [
+        "Responsive Design",
+        "Reusable React Components",
+        "Dynamic Data Rendering",
+        "Destination Management",
+        "Modern UI",
+      ],
       live: "https://dikeshsapkota.github.io/MyTravelJournal/",
       github: "https://github.com/dikeshsapkota/MyTravelJournal",
     },
@@ -30,10 +37,18 @@ function Projects() {
         "REST API",
         "GitHub Pages",
       ],
+      features: [
+        "API Integration",
+        "Countdown Timer",
+        "Score Tracking",
+        "Multiple Categories",
+        "Responsive Interface",
+      ],
       live: "https://dikeshsapkota.github.io/Quiz-app/",
       github: "https://github.com/dikeshsapkota/Quiz-app",
     },
   ];
+
 
   return (
     <section className="projects" id="projects">
@@ -56,7 +71,15 @@ function Projects() {
                   </span>
                 ))}
               </div>
+              <div className="project-features">
+                <h4>Key Features</h4>
 
+                <ul>
+                  {project.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
               <div className="project-links">
                 <a
                   href={project.live}
@@ -77,6 +100,24 @@ function Projects() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="more-projects">
+        <h3>Want to explore more?</h3>
+
+        <p>
+          Visit my GitHub repositories to discover more projects, experiments,
+          and coding practice that showcase my learning journey and development
+          skills.
+        </p>
+
+        <a
+          href="https://github.com/dikeshsapkota?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="github-btn"
+        >
+          Explore My GitHub Repositories →
+        </a>
       </div>
     </section>
   );
