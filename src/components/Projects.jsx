@@ -1,5 +1,6 @@
 import travelImg from "../assets/images/travel-journal.png";
 import quizImg from "../assets/images/quiz-app.png";
+import nationalIdImg from "../assets/images/national-id-extraction.png";
 
 function Projects() {
   const projects = [
@@ -14,13 +15,6 @@ function Projects() {
         "HTML5",
         "CSS3",
         "GitHub Pages",
-      ],
-      features: [
-        "Responsive Design",
-        "Reusable React Components",
-        "Dynamic Data Rendering",
-        "Destination Management",
-        "Modern UI",
       ],
       live: "https://dikeshsapkota.github.io/MyTravelJournal/",
       github: "https://github.com/dikeshsapkota/MyTravelJournal",
@@ -37,15 +31,23 @@ function Projects() {
         "REST API",
         "GitHub Pages",
       ],
-      features: [
-        "API Integration",
-        "Countdown Timer",
-        "Score Tracking",
-        "Multiple Categories",
-        "Responsive Interface",
-      ],
       live: "https://dikeshsapkota.github.io/Quiz-app/",
       github: "https://github.com/dikeshsapkota/Quiz-app",
+    },
+    {
+      title: "National ID Detection System",
+      image: nationalIdImg,
+      description:
+        "A digital citizen record processing portal that uploads National ID document images and extracts key information from them.",
+      techStack: [
+        "React",
+        "JavaScript",
+        "OCR",
+        "REST API",
+        "CSS3",
+      ],
+      live: "https://ai-id-extraction-system.netlify.app/",
+      github: "https://github.com/dikeshsapkota/ID-Information-Extraction-System",
     },
   ];
 
@@ -71,32 +73,29 @@ function Projects() {
                   </span>
                 ))}
               </div>
-              <div className="project-features">
-                <h4>Key Features</h4>
+              {(project.live || project.github) && (
+                <div className="project-links">
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo
+                    </a>
+                  )}
 
-                <ul>
-                  {project.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="project-links">
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo
-                </a>
-
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         ))}
