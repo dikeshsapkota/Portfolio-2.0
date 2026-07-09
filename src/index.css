@@ -560,9 +560,38 @@ body.light-theme .slider {
 @media(max-width:768px){
 
     header{
+        display:block;
+        padding:12px 6%;
 
-        display:none;
+    }
 
+    header nav{
+        gap:12px;
+        justify-content:flex-start;
+    }
+
+    header .logo{
+        margin-right:auto;
+        font-size:36px;
+    }
+
+    header .theme-toggle{
+        margin-left:0;
+    }
+
+    header .slider{
+        width:60px;
+        height:30px;
+        padding:0 7px;
+    }
+
+    header .slider::before{
+        width:24px;
+        height:24px;
+    }
+
+    header #theme-switch:checked + .slider::before{
+        transform:translateX(30px);
     }
 
     body{
