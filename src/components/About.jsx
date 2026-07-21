@@ -151,28 +151,22 @@ function About() {
     </section>
   );
 }
-function HobbyItem({ image, emoji, title, text, link }) {
+function HobbyItem({ image, emoji, title, link }) {
   return (
     <div className="hobby-row">
-      <img src={image} alt={title} />
+      <div className="hobby-inner">
+        <img src={image} alt={title} />
 
-      <div className="hobby-content">
-        <h4>
-          {emoji} {title}
-        </h4>
-
-        <p>
-          {text}
-
+        <div className="hobby-content">
+          <h4>
+            {emoji} {title}
+          </h4>
           {link && (
-            <>
-              {" "}
-              <a href={link} target="_blank" rel="noreferrer">
-                Chess Profile →
-              </a>
-            </>
+            <a href={link} target="_blank" rel="noreferrer">
+              Chess Profile →
+            </a>
           )}
-        </p>
+        </div>
       </div>
     </div>
   );

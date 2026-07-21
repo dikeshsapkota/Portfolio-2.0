@@ -85,12 +85,6 @@ const nameRef = useRef(null);
     dragging.current = true;
     start.current = { x: e.clientX, y: e.clientY };
   }
-function handleMouseDown(e) {
-  dragging.current = true;
-  start.current = { x: e.clientX, y: e.clientY };
-}
-
-// ADD HERE ↓↓↓
 
 function handleNameMove(e) {
   const name = nameRef.current;
@@ -117,15 +111,22 @@ function resetName() {
   return (
     <section id="home" className="hero">
       <div>
-<h1
-  className="tilt-name"
-  ref={nameRef}
-  onMouseMove={handleNameMove}
-  onMouseLeave={resetName}
->
-  <span className="first-name">DIKESH</span>
-  <span className="last-name">SAPKOTA</span>
-</h1>
+        <div
+          className="hero-name-logo"
+          ref={nameRef}
+          onMouseMove={handleNameMove}
+          onMouseLeave={resetName}
+        >
+          <h1 className="tilt-name hero-name">
+            <span className="first-name">DIKESH</span>
+            <span className="last-name">SAPKOTA</span>
+          </h1>
+
+          <div className="hero-logo-mark">
+            <span className="logo-d">D</span>
+            <span className="logo-s">S</span>
+          </div>
+        </div>
 
         <h3
           id="draggableText"
