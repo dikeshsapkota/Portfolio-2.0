@@ -7,8 +7,8 @@ const roles = [
   "Problem Solver",
   "Coffee Driven Coder ☕",
   "Chess Enthusiast ♟️",
-  "Football Fan ⚽",
-  "Funny Guy 😆",
+  
+  "Funny Guy ",
 ];
 
 function Hero() {
@@ -122,10 +122,7 @@ function resetName() {
             <span className="last-name">SAPKOTA</span>
           </h1>
 
-          <div className="hero-logo-mark">
-            <span className="logo-d">D</span>
-            <span className="logo-s">S</span>
-          </div>
+          
         </div>
 
         <h3

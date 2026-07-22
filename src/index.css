@@ -650,78 +650,68 @@ body.light-theme .slider {
   max-width: 850px;
   z-index: 2;
 }
-.hero img{
-
-    animation:floatHero 5s ease-in-out infinite;
-}
-
-@keyframes floatHero{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-}
-
-.hero-name-logo {
-  position: relative;
-  width: max-content;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-.hero-name {
+.hero-intro {
   display: flex;
   flex-direction: column;
-  font-size: clamp(70px, 9vw, 150px);
-  font-weight: 900;
-  line-height: .9;
-  letter-spacing: -4px;
-  text-transform: uppercase;
-  margin: 0;
-  transition: opacity .6s ease;
-}
-
-.hero-logo-mark {
-  position: absolute;
-  inset: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  font-size: clamp(64px, 8vw, 120px);
-  letter-spacing: -2px;
+  gap: 24px;
+  min-height: 80vh;
+}
+
+.hero-photo-wrapper {
+  width: 320px;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 35%;
+  animation: floatHero 5s ease-in-out infinite;
+}
+
+@keyframes floatHero {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.hero-name-typing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(44px, 8vw, 88px);
   font-weight: 900;
-  transition: opacity .6s ease, transform .6s ease;
-  transform: scale(0.85);
-}
-
-.hero-logo-mark .logo-d,
-.hero-logo-mark .logo-s {
-  display: inline-block;
-}
-
-.hero-logo-mark .logo-d {
   color: white;
+  letter-spacing: -2px;
+  text-transform: uppercase;
 }
 
-.hero-logo-mark .logo-s {
+.typing-cursor {
   color: var(--accent);
-  margin-left: -12px;
+  animation: blink 0.8s infinite;
 }
 
-.hero-name-logo:hover .hero-name {
-  opacity: 0;
+.hero-content {
+  margin-top: 40px;
 }
 
-.hero-name-logo:hover .hero-logo-mark {
-  opacity: 1;
-  transform: scale(1);
+.hero-loading-placeholder {
+  margin-top: 24px;
+  color: var(--muted);
+  opacity: 0.8;
+  font-size: 18px;
 }
 
 .tilt-name {
