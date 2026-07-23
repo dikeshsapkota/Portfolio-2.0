@@ -68,3 +68,9 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }// deployment test
+export function GET() {
+  return Response.json({
+    success: true,
+    message: "Contact API is working",
+  });
+}
