@@ -119,14 +119,12 @@ function About() {
                 image={manwha}
                 emoji="📚"
                 title="Reading Comics & Manga"
-                text="Exploring creative stories and visual storytelling."
               />
 
               <HobbyItem
                 image={dikesh}
                 emoji="♟️"
                 title="Chess"
-                text="Strategic thinking and problem solving."
                 link="https://www.chess.com/member/blunderkingdikesh"
               />
 
@@ -134,14 +132,12 @@ function About() {
                 image={coding}
                 emoji="💻"
                 title="Coding & Coffee"
-                text="Building projects while learning new technologies."
               />
 
               <HobbyItem
                 image={messi}
                 emoji="⚽"
                 title="Football"
-                text="Following major leagues and international tournaments."
               />
             </div>
           </div>
