@@ -1,23 +1,43 @@
+import { useState } from "react";
+
 function Contact() {
+  const [isSending, setIsSending] = useState(false);
+
   async function handleSubmit(e) {
     e.preventDefault();
+    setIsSending(true);
 
-    const formData = new FormData(e.target);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    formData.append("access_key", "2bab0dd4-0a38-47c0-9095-2ebc32fc2a48");
+    const contactData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("/api/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactData),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (result.success) {
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Message could not be sent.");
+      }
+
       alert("Message sent successfully!");
-      e.target.reset();
-    } else {
+      form.reset();
+    } catch (error) {
+      console.error(error);
       alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSending(false);
     }
   }
 
@@ -46,7 +66,9 @@ function Contact() {
           required
         ></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit" disabled={isSending}>
+          {isSending ? "Sending..." : "Send Message"}
+        </button>
       </form>
     </section>
   );
