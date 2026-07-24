@@ -421,8 +421,24 @@ ul li a:hover {
 }
 
 .nav-links a:hover::after,
-ul li a:hover::after {
+ul li a:hover::after,
+.nav-links a.active::after,
+ul li a.active::after {
   width: 100%;
+}
+
+.nav-links a.active,
+ul li a.active {
+  color: var(--accent);
+}
+
+.standalone-page {
+  min-height: calc(100vh - 80px);
+  padding-top: 72px;
+}
+
+.standalone-page > section {
+  min-height: calc(100vh - 152px);
 }
 
 body.light-theme header.scrolled .nav-links a,
@@ -1024,25 +1040,15 @@ body.light-theme .education-steps button {
 }
 
 .hobby-list {
-  position: relative;
   width: 100%;
-  min-height: 420px;
   margin-top: 20px;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  overflow: hidden;
-}
-
-.hobby-list:hover .hobby-row {
-  animation-play-state: paused;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .hobby-row {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180px;
-  max-width: 45%;
+  width: 100%;
   display: flex;
   gap: 18px;
   align-items: center;
@@ -1053,24 +1059,6 @@ body.light-theme .education-steps button {
   backdrop-filter: blur(14px);
   transition: background .35s ease, border-color .35s ease, box-shadow .35s ease;
   cursor: pointer;
-  transform-origin: center -120px;
-  animation: hobbyOrbit 18s linear infinite;
-}
-
-.hobby-row:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.hobby-row:nth-child(2) {
-  animation-delay: -4.5s;
-}
-
-.hobby-row:nth-child(3) {
-  animation-delay: -9s;
-}
-
-.hobby-row:nth-child(4) {
-  animation-delay: -13.5s;
 }
 
 .hobby-row:hover {
@@ -1132,26 +1120,14 @@ body.light-theme .hobby-row:hover {
   text-decoration:none;
 }
 
-@keyframes hobbyOrbit {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg) translateX(140px) rotate(0deg) rotateX(16deg) translateZ(0);
-  }
-  25% {
-    transform: translate(-50%, -50%) rotate(90deg) translateX(140px) rotate(-90deg) rotateX(16deg) translateZ(8px) scale(0.96);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(180deg) translateX(140px) rotate(-180deg) rotateX(16deg) translateZ(0) scale(0.94);
-  }
-  75% {
-    transform: translate(-50%, -50%) rotate(270deg) translateX(140px) rotate(-270deg) rotateX(16deg) translateZ(8px) scale(0.96);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg) translateX(140px) rotate(-360deg) rotateX(16deg) translateZ(0);
+@media (max-width: 768px) {
+  .about-bottom-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .about-bottom-grid {
+@media (max-width: 480px) {
+  .hobby-list {
     grid-template-columns: 1fr;
   }
 }

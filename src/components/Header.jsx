@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 
-function Header({ lightTheme, setLightTheme }) {
+const navItems = [
+  ["home", "Home"],
+  ["about", "About"],
+  ["skills", "Skills"],
+  ["projects", "Projects"],
+  ["contact", "Contact"],
+];
+
+function Header({ lightTheme, setLightTheme, currentPage }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,17 +26,24 @@ function Header({ lightTheme, setLightTheme }) {
   return (
     <header className={scrolled ? "scrolled" : ""}>
       <nav>
-        <a href="#home" className="logo">
+        <a href="#/" className="logo" aria-label="Go to home page">
   <span className="logo-d">D</span>
   <span className="logo-s">S</span>
 </a>
 
         <ul id="navLinks" className={menuOpen ? "active" : ""}>
-          <li><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
-          <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
-          <li><a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
-          <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
-          <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
+          {navItems.map(([page, label]) => (
+            <li key={page}>
+              <a
+                href={page === "home" ? "#/" : `#/${page}`}
+                className={currentPage === page ? "active" : ""}
+                aria-current={currentPage === page ? "page" : undefined}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
 
         <div className="theme-toggle">
