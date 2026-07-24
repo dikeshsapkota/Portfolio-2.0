@@ -6,7 +6,6 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import BackgroundBlobs from "./components/BackgroundBlob";
 import BottomNav from "./components/BottomNav";
 
 const pages = {
@@ -46,7 +45,6 @@ function App() {
 
   return (
     <>
-      <BackgroundBlobs />
       <Header
         lightTheme={lightTheme}
         setLightTheme={setLightTheme}

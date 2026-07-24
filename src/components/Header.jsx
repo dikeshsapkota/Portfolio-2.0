@@ -11,17 +11,32 @@ const navItems = [
 function Header({ lightTheme, setLightTheme, currentPage }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [visibleSection, setVisibleSection] = useState(currentPage);
 
   useEffect(() => {
     function handleScroll() {
       setScrolled(window.scrollY > 50);
+
+      if (currentPage !== "home") {
+        setVisibleSection(currentPage);
+        return;
+      }
+
+      const sectionAtHeader = [...document.querySelectorAll("main section")].find(
+        (section) => {
+          const bounds = section.getBoundingClientRect();
+          return bounds.top <= 100 && bounds.bottom > 100;
+        }
+      );
+
+      setVisibleSection(sectionAtHeader?.id || "home");
     }
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [currentPage]);
 
   return (
     <header className={scrolled ? "scrolled" : ""}>
@@ -36,8 +51,8 @@ function Header({ lightTheme, setLightTheme, currentPage }) {
             <li key={page}>
               <a
                 href={page === "home" ? "#/" : `#/${page}`}
-                className={currentPage === page ? "active" : ""}
-                aria-current={currentPage === page ? "page" : undefined}
+                className={visibleSection === page ? "active" : ""}
+                aria-current={visibleSection === page ? "page" : undefined}
                 onClick={() => setMenuOpen(false)}
               >
                 {label}
