@@ -39,7 +39,11 @@ function Header({ lightTheme, setLightTheme, currentPage }) {
   }, [currentPage]);
 
   return (
-    <header className={scrolled ? "scrolled" : ""}>
+    <header
+      className={`${scrolled ? "scrolled" : ""} ${
+        currentPage === "home" ? "home-header" : ""
+      }`.trim()}
+    >
       <nav>
         <a href="#/" className="logo" aria-label="Go to home page">
   <span className="logo-d">D</span>

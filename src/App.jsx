@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BottomNav from "./components/BottomNav";
+import SocialContact from "./components/SocialContact";
 
 const pages = {
   about: About,
@@ -58,7 +59,7 @@ function App() {
             <About />
             <Skills />
             <Projects />
-            <Contact />
+            <SocialContact />
           </>
         ) : (
           <Page />
