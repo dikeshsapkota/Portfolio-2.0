@@ -18,6 +18,39 @@ const pages = {
   contact: Contact,
 };
 
+const pageMetadata = {
+  home: {
+    title: "Dikesh Sapkota | Frontend Engineer Portfolio",
+    description:
+      "Portfolio of Dikesh Sapkota, a frontend engineer building responsive web experiences with React, JavaScript, Tailwind CSS, and modern frontend technologies.",
+  },
+  about: {
+    title: "About Dikesh Sapkota | Frontend Engineer",
+    description:
+      "Learn about Dikesh Sapkota, his education, technical background, interests, and journey as a frontend engineer.",
+  },
+  experience: {
+    title: "Experience | Dikesh Sapkota",
+    description:
+      "Explore Dikesh Sapkota's professional frontend engineering experience and the technologies he uses.",
+  },
+  skills: {
+    title: "Frontend Development Skills | Dikesh Sapkota",
+    description:
+      "Explore Dikesh Sapkota's skills in React, JavaScript, Tailwind CSS, REST APIs, databases, and development tools.",
+  },
+  projects: {
+    title: "Web Development Projects | Dikesh Sapkota",
+    description:
+      "View React, JavaScript, API, and OCR projects created by frontend engineer Dikesh Sapkota.",
+  },
+  contact: {
+    title: "Contact Dikesh Sapkota | Frontend Engineer",
+    description:
+      "Contact Dikesh Sapkota for frontend engineering opportunities, collaborations, and web development work.",
+  },
+};
+
 function getCurrentPage() {
   const hash = window.location.hash.replace(/^#\/?/, "").split("/")[0];
   return pages[hash] ? hash : "home";
@@ -33,6 +66,14 @@ function App() {
     document.body.classList.toggle("light-theme", lightTheme);
     localStorage.setItem("theme", lightTheme ? "light" : "dark");
   }, [lightTheme]);
+
+  useEffect(() => {
+    const metadata = pageMetadata[currentPage];
+    document.title = metadata.title;
+
+    const description = document.querySelector('meta[name="description"]');
+    description?.setAttribute("content", metadata.description);
+  }, [currentPage]);
 
   useEffect(() => {
     function handleRouteChange() {
