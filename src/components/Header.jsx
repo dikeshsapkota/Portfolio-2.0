@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   ["home", "Home"],
   ["about", "About"],
+  ["experience", "Experience"],
   ["skills", "Skills"],
   ["projects", "Projects"],
   ["contact", "Contact"],
@@ -37,6 +38,15 @@ function Header({ lightTheme, setLightTheme, currentPage }) {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [currentPage]);
+
+  useEffect(() => {
+    function closeMenuOnDesktop() {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    }
+
+    window.addEventListener("resize", closeMenuOnDesktop);
+    return () => window.removeEventListener("resize", closeMenuOnDesktop);
+  }, []);
 
   return (
     <header
@@ -78,7 +88,14 @@ function Header({ lightTheme, setLightTheme, currentPage }) {
           </label>
         </div>
 
-        <button id="menuBtn" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          id="menuBtn"
+          type="button"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="navLinks"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           ☰
         </button>
       </nav>

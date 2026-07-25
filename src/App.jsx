@@ -8,9 +8,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BottomNav from "./components/BottomNav";
 import SocialContact from "./components/SocialContact";
+import Experience from "./components/Experience";
 
 const pages = {
   about: About,
+  experience: Experience,
   skills: Skills,
   projects: Projects,
   contact: Contact,

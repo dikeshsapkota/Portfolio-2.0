@@ -4,11 +4,13 @@ import {
   Code2,
   FolderGit2,
   Mail,
+  BriefcaseBusiness,
 } from "lucide-react";
 
 const navItems = [
   ["home", House, "Home"],
   ["about", User, "About"],
+  ["experience", BriefcaseBusiness, "Experience"],
   ["skills", Code2, "Skills"],
   ["projects", FolderGit2, "Projects"],
   ["contact", Mail, "Contact"],

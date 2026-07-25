@@ -162,7 +162,6 @@ function resetName() {
         </div>
       </div>
       <a href="#/about" className="scroll-down">
-  <span>Scroll Down</span>
   <div className="mouse">
     <div className="wheel"></div>
   </div>
