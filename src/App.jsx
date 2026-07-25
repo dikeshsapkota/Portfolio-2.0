@@ -20,9 +20,9 @@ const pages = {
 
 const pageMetadata = {
   home: {
-    title: "Dikesh Sapkota | Frontend Engineer Portfolio",
+    title: "Dikesh Sapkota | Full Stack Developer Portfolio",
     description:
-      "Portfolio of Dikesh Sapkota, a frontend engineer building responsive web experiences with React, JavaScript, Tailwind CSS, and modern frontend technologies.",
+      "Portfolio of Dikesh Sapkota, a full stack developer building responsive web applications with React, JavaScript, Tailwind CSS, APIs, and modern web technologies.",
   },
   about: {
     title: "About Dikesh Sapkota | Frontend Engineer",
