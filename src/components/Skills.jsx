@@ -18,6 +18,7 @@ import {
   SiC,
   SiGreensock,
   SiResend,
+  SiTailwindcss,
   SiVercel,
   SiVite,
 } from "react-icons/si";
@@ -30,6 +31,7 @@ const skillGroups = {
     { icon: FaCss3Alt, title: "CSS", level: "Advanced", proficiency: 86, color: "#1572B6" },
     { icon: FaJs, title: "JavaScript", level: "Proficient", proficiency: 84, color: "#F7DF1E" },
     { icon: FaReact, title: "React", level: "Project Ready", proficiency: 82, color: "#61DAFB" },
+    { icon: SiTailwindcss, title: "Tailwind CSS", level: "Comfortable", proficiency: 76, color: "#06B6D4" },
     { icon: VscCode, title: "REST API", level: "Comfortable", proficiency: 75, color: "#007ACC" },
     { icon: VscCode, title: "OCR Integration", level: "Applied", proficiency: 68, color: "#22C55E" },
     { icon: FaNodeJs, title: "Node.js", level: "Growing", proficiency: 55, color: "#339933" },

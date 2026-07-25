@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/pixelpurl");
+
 /* =========================================
    GLOBAL RESET & THEME
 ========================================= */
@@ -95,7 +97,7 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  font-family: Arial, sans-serif;
+  font-family: "PixelPurl", "Courier New", monospace;
   transition: background 0.35s ease, color 0.35s ease;
 }
 
@@ -545,7 +547,7 @@ body.light-theme .slider {
 .hero,
 .hero button,
 .hero a {
-  font-family: "Courier New", "Lucida Console", monospace;
+  font-family: "PixelPurl", "Courier New", monospace;
 }
 
 .typing-cursor {
@@ -567,6 +569,7 @@ body.light-theme .slider {
 .tilt-name {
   display: flex;
   flex-direction: column;
+  font-family: "PixelPurl", "Courier New", monospace;
   font-size: clamp(70px,9vw,150px);
   font-weight:900;
   line-height:.9;
@@ -1824,8 +1827,9 @@ body.light-theme {
 body,
 button,
 input,
-textarea {
-  font-family: "Courier New", "Lucida Console", monospace;
+textarea,
+select {
+  font-family: "PixelPurl", "Courier New", monospace;
 }
 
 h2,
