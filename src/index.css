@@ -770,34 +770,40 @@ body.light-theme .slider {
     text-transform: uppercase;
     text-shadow: 2px 2px 0 #111827;
     animation: float 2s infinite;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
 }
 
-.mouse {
-    width: 28px;
-    height: 48px;
-    border: 2px solid var(--accent);
-    border-radius: 0;
-    display: flex;
-    justify-content: center;
-    padding-top: 6px;
+.down-arrow {
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 24px;
+    animation: arrow-blink 1s steps(2, end) infinite;
 }
 
-.wheel {
-    width: 4px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 0;
-    animation: wheel 1.5s infinite;
+.down-arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-3);
+    box-shadow:
+      32px 0 var(--accent-3),
+      8px 8px var(--accent-3),
+      24px 8px var(--accent-3),
+      16px 16px var(--accent-3);
 }
 
-@keyframes wheel {
-    0% {
-        transform: translateY(0);
+@keyframes arrow-blink {
+    0%, 45% {
         opacity: 1;
     }
-    100% {
-        transform: translateY(16px);
-        opacity: 0;
+    50%, 100% {
+        opacity: 0.25;
     }
 }
 
@@ -1807,10 +1813,8 @@ body.light-theme .footer {
 }
 body.light-theme .scroll-down {
   color: white;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 10px 16px;
-  border-radius: 30px;
-  backdrop-filter: blur(6px);
+  background: transparent;
+  padding: 0;
 }
 
 /* Portfolio-wide pixel art theme */

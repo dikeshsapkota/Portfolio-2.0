@@ -108,6 +108,14 @@ function resetName() {
   nameRef.current.style.transform =
     "perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)";
 }
+
+function scrollToAbout() {
+  document.querySelector("#about")?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
+
   return (
     <section id="home" className="hero">
       <div>
@@ -161,11 +169,14 @@ function resetName() {
           </a>
         </div>
       </div>
-      <a href="#/about" className="scroll-down">
-  <div className="mouse">
-    <div className="wheel"></div>
-  </div>
-</a>
+      <button
+        type="button"
+        className="scroll-down"
+        aria-label="Scroll to About section"
+        onClick={scrollToAbout}
+      >
+        <span className="down-arrow" aria-hidden="true" />
+      </button>
     </section>
   );
 }
