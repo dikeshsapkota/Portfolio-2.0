@@ -44,6 +44,40 @@ function App() {
     return () => window.removeEventListener("hashchange", handleRouteChange);
   }, []);
 
+  useEffect(() => {
+    const revealElements = document.querySelectorAll(
+      "main section:not(.hero), .about-card, .info-card, .card, .project-card, .experience-card, .more-projects"
+    );
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      revealElements.forEach((element) => element.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px",
+      }
+    );
+
+    revealElements.forEach((element, index) => {
+      element.classList.add("scroll-reveal");
+      element.style.setProperty("--reveal-delay", `${(index % 4) * 60}ms`);
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [currentPage]);
+
   const Page = pages[currentPage];
 
   return (
