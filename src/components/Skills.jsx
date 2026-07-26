@@ -84,8 +84,17 @@ const tabs = [
   ["toolsSkills", "🛠️ Tools"],
 ];
 
-function Skills() {
-  const [activeTab, setActiveTab] = useState("webSkills");
+function getActiveSkillTab() {
+  const tabFromHash = window.location.hash
+    .replace(/^#\/?/, "")
+    .split("/")[1];
+
+  return skillGroups[tabFromHash] ? tabFromHash : "webSkills";
+}
+
+function Skills({ preview = false }) {
+  const [activeTab, setActiveTab] = useState(getActiveSkillTab);
+  const activeTabLabel = tabs.find(([id]) => id === activeTab)?.[1].replace(/^\S+\s/, "");
 
   return (
     <section id="skills">
@@ -105,7 +114,7 @@ function Skills() {
 
       <div className="skills-content active">
         <div className="cards">
-          {skillGroups[activeTab].map((skill) => {
+          {skillGroups[activeTab].slice(0, preview ? 4 : undefined).map((skill) => {
             const Icon = skill.icon;
 
             return (
@@ -134,6 +143,14 @@ function Skills() {
           })}
         </div>
       </div>
+
+      {preview && (
+        <div className="skills-more">
+          <a href={`#/skills/${activeTab}`}>
+            See more {activeTabLabel} skills →
+          </a>
+        </div>
+      )}
     </section>
   );
 }
