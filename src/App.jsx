@@ -37,7 +37,7 @@ const pageMetadata = {
   skills: {
     title: "Frontend Development Skills | Dikesh Sapkota",
     description:
-      "Explore Dikesh Sapkota's skills in React, JavaScript, Tailwind CSS, REST APIs, databases, and development tools.",
+      "Explore Dikesh Sapkota's skills in React, TypeScript, Tailwind CSS, Node.js, REST APIs, PostgreSQL, Prisma, Socket.IO, and development tools.",
   },
   projects: {
     title: "Web Development Projects | Dikesh Sapkota",
