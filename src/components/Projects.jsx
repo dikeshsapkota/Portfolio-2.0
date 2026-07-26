@@ -1,9 +1,29 @@
 import travelImg from "../assets/images/travel-journal.png";
 import quizImg from "../assets/images/quiz-app.png";
 import nationalIdImg from "../assets/images/national-id-extraction.png";
+import devisHubImg from "../assets/images/DevisHub.png";
 
 function Projects() {
   const projects = [
+    {
+      title: "DevisHub",
+      image: devisHubImg,
+      description:
+        "A full-stack social platform for developers to build profiles, showcase projects, publish updates, and connect through real-time messaging.",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "Prisma ORM",
+        "PostgreSQL",
+        "Socket.IO",
+      ],
+      status: "Working on",
+      live: "https://devis-hub.vercel.app/",
+      github: "https://github.com/dikeshsapkota/DevisHub",
+    },
     {
       title: "My Travel Journal",
       image: travelImg,
@@ -18,6 +38,7 @@ function Projects() {
       ],
       live: "https://dikeshsapkota.github.io/MyTravelJournal/",
       github: "https://github.com/dikeshsapkota/MyTravelJournal",
+      status: "Completed",
     },
     {
       title: "Quiz App",
@@ -33,6 +54,7 @@ function Projects() {
       ],
       live: "https://dikeshsapkota.github.io/Quiz-app/",
       github: "https://github.com/dikeshsapkota/Quiz-app",
+      status: "Completed",
     },
     {
       title: "National ID Detection System",
@@ -48,6 +70,7 @@ function Projects() {
       ],
       live: "https://ai-id-extraction-system.netlify.app/",
       github: "https://github.com/dikeshsapkota/ID-Information-Extraction-System",
+      status: "Completed",
     },
   ];
 
@@ -62,7 +85,14 @@ function Projects() {
             <img src={project.image} alt={project.title} />
 
             <div className="project-content">
-              <h3>{project.title}</h3>
+              <div className="project-heading">
+                <h3>{project.title}</h3>
+                <span
+                  className={`project-status ${project.status === "Working on" ? "in-progress" : "completed"}`}
+                >
+                  {project.status}
+                </span>
+              </div>
 
               <p>{project.description}</p>
 
