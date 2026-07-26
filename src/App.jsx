@@ -134,7 +134,7 @@ function App() {
           <>
             <Hero />
             <About />
-            <Skills />
+            <Skills preview />
             <Projects />
             <SocialContact />
           </>

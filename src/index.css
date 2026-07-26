@@ -194,11 +194,13 @@ nav,
   display: flex;
   align-items: center;
   gap: 0;
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 900;
   text-decoration: none;
-  letter-spacing: -5px;
-  font-family: "Inter", sans-serif;
+  letter-spacing: -3px;
+  font-family: "PixelPurl", "Courier New", monospace;
+  image-rendering: pixelated;
+  text-rendering: geometricPrecision;
 }
 
 .logo-d {
@@ -208,7 +210,7 @@ nav,
 
 body.light-theme .logo-d {
   color: #111827;
-  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.65);
+  text-shadow: none;
 }
 
 .logo-s {
@@ -473,7 +475,7 @@ body.light-theme .slider {
 
     header .logo{
         margin-right:auto;
-        font-size:36px;
+        font-size:40px;
     }
 
     header .theme-toggle{
@@ -1176,6 +1178,8 @@ body.light-theme .skill-card {
   font-size: 64px;
   margin-bottom: 18px;
   transition: 0.35s ease;
+  image-rendering: pixelated;
+  shape-rendering: crispEdges;
 }
 
 .card h3,
@@ -1229,7 +1233,7 @@ body.light-theme .skill-meter {
 
 .card:hover .skill-icon,
 .skill-card:hover .skill-icon {
-  transform: scale(1.15) rotate(-8deg);
+  transform: none;
 }
 
 .skill-tabs {
@@ -1270,6 +1274,34 @@ body.light-theme .skill-tab {
 
 .skills-content.active {
   display: block;
+}
+
+.skills-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.skills-more a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.skills-more a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
 }
 
 /* =========================================
@@ -1942,13 +1974,12 @@ h2::after {
 }
 
 .skill-icon {
-  filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.35));
-  transition: transform 0.15s steps(2, end);
+  filter: none;
 }
 
 .card:hover .skill-icon,
 .skill-card:hover .skill-icon {
-  transform: translate(3px, 3px);
+  transform: none;
 }
 
 .skill-tab,
@@ -2209,7 +2240,7 @@ section:not(.hero) {
   }
 
   header .logo {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .theme-toggle {
@@ -2280,7 +2311,7 @@ section:not(.hero) {
   }
 
   header .logo {
-    font-size: 29px;
+    font-size: 33px;
   }
 
   header .slider {
@@ -2460,7 +2491,7 @@ section:not(.hero) > * {
   }
 
   header .logo {
-    font-size: 27px;
+    font-size: 31px;
   }
 
   header .slider {
