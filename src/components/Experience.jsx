@@ -1,14 +1,15 @@
 function Experience() {
   const techStack = [
     "React",
+    "TypeScript",
     "JavaScript",
-    "HTML5",
-    "CSS3",
-    "Vite",
-    "REST APIs",
-    "GSAP",
-    "Git",
     "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "REST APIs",
+    "PostgreSQL",
+    "Prisma ORM",
+    "Git",
   ];
 
   return (

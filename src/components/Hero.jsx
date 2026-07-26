@@ -5,8 +5,8 @@ const roles = [
   "Aspiring Full Stack Developer",
   "BSc CSIT Student",
   "Problem Solver",
-  "Coffee Driven Coder ☕",
-  "Chess Enthusiast ♟️",
+  "Coffee Driven Coder ",
+  "Chess Enthusiast ",
   
   "Funny Guy ",
 ];
