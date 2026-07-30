@@ -2,6 +2,7 @@ import travelImg from "../assets/images/travel-journal.png";
 import quizImg from "../assets/images/quiz-app.png";
 import nationalIdImg from "../assets/images/national-id-extraction.png";
 import devisHubImg from "../assets/images/DevisHub.png";
+import bazaarNepalImg from "../assets/images/bazaar-nepal.png";
 
 function Projects() {
   const projects = [
@@ -23,6 +24,22 @@ function Projects() {
       status: "Working on",
       live: "https://devis-hub.vercel.app/",
       github: "https://github.com/dikeshsapkota/DevisHub",
+    },
+    {
+      title: "BazaarNepal",
+      image: bazaarNepalImg,
+      description:
+        "A Nepali marketplace app for discovering local products, browsing categories, managing products, and applying promo codes.",
+      techStack: [
+        "React",
+        "JavaScript",
+        "CSS3",
+        "Vite",
+        "Vercel",
+      ],
+      live: "https://bazaar-nepal.vercel.app/",
+      github: "https://github.com/dikeshsapkota/BazaarNepal",
+      status: "Completed",
     },
     {
       title: "My Travel Journal",
